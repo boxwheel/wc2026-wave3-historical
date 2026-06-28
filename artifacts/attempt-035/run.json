@@ -1,0 +1,28 @@
+{
+  "attempt": "035",
+  "description": "Gaussian draw probability model",
+  "sc_grid": [
+    350,
+    400,
+    450
+  ],
+  "max_dr_grid": [
+    0.28,
+    0.3,
+    0.32,
+    0.35
+  ],
+  "sigma_grid": [
+    100,
+    150,
+    200,
+    250,
+    300,
+    400
+  ],
+  "bonus_grid": [
+    250,
+    300,
+    350
+  ]
+}

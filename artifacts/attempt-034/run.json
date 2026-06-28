@@ -1,0 +1,21 @@
+{
+  "attempt": "034",
+  "description": "Extended host_bonus sweep 250-600 at dr=0.30, sc=400",
+  "dr": 0.3,
+  "sc": 400,
+  "bonus_grid": [
+    250,
+    275,
+    300,
+    325,
+    350,
+    375,
+    400,
+    425,
+    450,
+    500,
+    550,
+    600
+  ],
+  "best_bonus": 600
+}
