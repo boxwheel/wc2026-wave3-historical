@@ -1,0 +1,64 @@
+Dataset: 64 completed WC-2026 matches
+
+=== Attempt 038: scipy differential_evolution Elo formula optimization ===
+  eval 20: dr=0.436 sc=528.0 bonus=1103.7 → 0.83237
+  eval 40: dr=0.271 sc=416.8 bonus=678.3 → 0.80553
+  eval 60: dr=0.316 sc=388.6 bonus=966.0 → 0.80197
+  eval 80: dr=0.227 sc=309.4 bonus=975.9 → 0.82414
+  eval 100: dr=0.265 sc=434.1 bonus=1487.1 → 0.80858
+  eval 120: dr=0.364 sc=463.9 bonus=966.0 → 0.80801
+  eval 140: dr=0.331 sc=368.9 bonus=1063.8 → 0.80389
+  eval 160: dr=0.283 sc=364.2 bonus=1019.2 → 0.80446
+  eval 180: dr=0.316 sc=400.8 bonus=966.0 → 0.80179
+  eval 200: dr=0.276 sc=406.9 bonus=884.1 → 0.80413
+  eval 220: dr=0.304 sc=439.7 bonus=1258.5 → 0.80280
+  eval 240: dr=0.309 sc=413.6 bonus=1278.9 → 0.80170
+  eval 260: dr=0.309 sc=413.2 bonus=1427.3 → 0.80170
+  eval 280: dr=0.320 sc=393.9 bonus=1382.1 → 0.80194
+  eval 300: dr=0.316 sc=413.6 bonus=271.3 → 0.80549
+  eval 320: dr=0.307 sc=411.1 bonus=1265.5 → 0.80171
+  eval 340: dr=0.312 sc=408.1 bonus=1350.8 → 0.80169
+  eval 360: dr=0.309 sc=412.8 bonus=571.8 → 0.80204
+  eval 380: dr=0.312 sc=408.3 bonus=1427.6 → 0.80169
+  eval 400: dr=0.313 sc=407.9 bonus=1350.8 → 0.80170
+  eval 420: dr=0.310 sc=401.0 bonus=1278.9 → 0.80172
+  eval 440: dr=0.310 sc=409.4 bonus=1418.0 → 0.80169
+  eval 460: dr=0.311 sc=409.0 bonus=1350.8 → 0.80169
+  eval 480: dr=0.311 sc=408.9 bonus=1463.8 → 0.80169
+  eval 500: dr=0.312 sc=409.5 bonus=1425.5 → 0.80169
+  eval 520: dr=0.311 sc=408.9 bonus=1463.8 → 0.80169
+
+Optimized: dr=0.3108, sc=408.88, bonus=1463.80
+Result: 0.8017 ± 0.1223  Δ=-0.0320  p=0.0365  GREEN
+Total evaluations: 522
+
+=== Attempt 039: WC group-stage only logistic regression ===
+WC matches from 2010+: 3750
+Training rows: 3750
+WC historical logistic (C=1.0): 0.8910 ± 0.0933  Δ=+0.0573  p=1.0000  RED
+  bonus=300: 0.8742
+  bonus=500: 0.8749
+  bonus=750: 0.8817
+
+=== Attempt 040: Confederation draw rate adjustment ===
+Best: {'sc': 400, 'bonus': 800, 'dr_scale': 1.05} → 0.8032 ± 0.1231
+  Δ=-0.0305  p=0.0445  GREEN
+
+=== Attempt 041: Optimal Elo (dr=0.311, sc=408.9, bonus=1463.8) + WC logistic blend ===
+   alpha     mean      std
+    1.00   0.8017   0.1223
+    0.95   0.8032   0.1193
+    0.90   0.8051   0.1165
+    0.85   0.8073   0.1138
+    0.80   0.8098   0.1114
+    0.70   0.8156   0.1069
+
+Best (alpha=1.0): 0.8017 ± 0.1223  Δ=-0.0320  p=0.0365  GREEN
+
+===== BATCH 9 SUMMARY =====
+038 differential_evolution Elo: 0.8017  (dr=0.311 sc=408.9 bonus=1463.8)
+039 WC group-stage logistic:     0.8910
+040 confed draw rate adjust:     0.8032
+041 Elo + WC logistic blend:     0.8017
+Wave-3 best (036):              0.8020
+Baseline:                        0.8337

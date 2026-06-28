@@ -1,0 +1,21 @@
+{
+  "attempt": "038",
+  "description": "scipy differential_evolution on (dr, sc, bonus)",
+  "bounds": [
+    [
+      0.2,
+      0.45
+    ],
+    [
+      300,
+      600
+    ],
+    [
+      0,
+      1500
+    ]
+  ],
+  "seed": 42,
+  "maxiter": 30,
+  "popsize": 10
+}

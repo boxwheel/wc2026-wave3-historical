@@ -1,0 +1,12 @@
+{
+  "attempt": "040",
+  "description": "Confederation draw rate adjustment",
+  "confed_draw_rates": {
+    "('UEFA', 'UEFA')": 0.32,
+    "('CONMEBOL', 'CONMEBOL')": 0.3,
+    "('CONCACAF', 'CONCACAF')": 0.28,
+    "('AFC', 'AFC')": 0.28,
+    "('CAF', 'CAF')": 0.26,
+    "default": 0.29
+  }
+}

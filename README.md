@@ -52,8 +52,12 @@ Train full-scale supervised models on ~49K historical international matches with
 | 035 | Gaussian draw probability bell-curve model | 0.8381 ± 0.116 | FLAT |
 | 036 | Extended 3D grid (bonus 500-750, plateau at 750) | **0.8020 ± 0.125** | **GREEN** |
 | 037 | FIFA rank offset as Elo supplement (gamma=0 optimal) | 0.8026 ± 0.120 | GREEN |
+| 038 | scipy DE Elo global opt (dr=0.311, sc=409, bonus=1464) | **0.8017 ± 0.122** | **GREEN** |
+| 039 | WC group-stage logistic (2010+ WC history, Elo feature) | 0.8910 ± 0.093 | RED |
+| 040 | Per-confed draw rate scaling (dr_scale=1.05, sc=400, bonus=800) | 0.8032 ± 0.123 | GREEN |
+| 041 | Blend: optimal Elo + WC logistic (best alpha=1.0 → pure Elo) | 0.8017 ± 0.122 | GREEN |
 
-**Campaign baseline**: 0.8337 | **Wave-3 best**: **0.8020 (GREEN, 036)** | **Wave-2 ensemble frontier**: 0.7608
+**Campaign baseline**: 0.8337 | **Wave-3 best**: **0.8017 (GREEN, 038)** | **Wave-2 ensemble frontier**: 0.7608
 
 ## Key Findings
 1. **Historical form ≡ Elo**: Win rate, GD, and form features are proxies for the same signal Elo already encodes. Adding them doesn't beat the baseline.
@@ -63,9 +67,10 @@ Train full-scale supervised models on ~49K historical international matches with
 5. **Host bonus trend still rising at 250**: In Batch 7 grid, best result is at the maximum host_bonus value (250), suggesting further improvement from pushing higher.
 6. **Adaptive draw rates hurt (032)**: WC-calibrated bin draw rates create extreme low draw rates for large Elo mismatches (0.124), causing miscalibrated extreme probabilities.
 7. **Logistic blends can't beat pure Elo (031, 033)**: Neither kitchen-sink logistic blend nor temperature-scaled logistic improve over the direct Elo formula. The formula's signal is already well-extracted.
-8. **Host bonus plateau ~750**: Bonus keeps improving from 100→250→600→750 but flattens after 700. The 3 WC-2026 hosts (Mexico, USA, Canada) have a very large home field advantage.
+8. **Host bonus far larger than initially thought**: scipy DE finds bonus=1464 (vs grid maximum of 750), still improving — the 3 WC-2026 hosts (Mexico, USA, Canada) dominate their home group games, so extreme bonus calibration is rewarded.
 9. **FIFA rank is redundant**: FIFA rank offset (gamma=0 is always best) adds nothing beyond Elo.
-10. **Wave-3 gap from frontier**: Best Wave-3 is 0.8020 vs Wave-2 frontier 0.7608 — a 0.041 gap still to close.
+10. **Blending never helps (041)**: Optimal blend alpha=1.0 (pure Elo), confirming WC logistic adds no signal.
+11. **Wave-3 gap from frontier**: Best Wave-3 is 0.8017 vs Wave-2 frontier 0.7608 — a 0.041 gap still to close.
 
 ## Eval Protocol
 RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0) on 64 completed WC-2026 group-stage matches.
@@ -81,4 +86,5 @@ python run_experiments5.py        # Batch 5: attempts 021-025 (form, confederati
 python run_experiments6.py        # Batch 6: attempts 026-029 (ordinal, WC bins, 5-model ensemble, direct Elo)
 python run_experiments7.py        # Batch 7: attempts 030-033 (fine grid GREEN, logistic blend, adaptive draw, temp-scale)
 python run_experiments8.py        # Batch 8: attempts 034-037 (extended bonus, Gaussian draw, 3D grid, FIFA rank)
+python run_experiments9.py        # Batch 9: attempts 038-041 (scipy DE global opt, WC logistic, confed draw, blend)
 ```

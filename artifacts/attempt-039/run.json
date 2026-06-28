@@ -1,0 +1,8 @@
+{
+  "attempt": "039",
+  "description": "WC group-stage logistic (2010-2022) applied to 2026",
+  "C": 1.0,
+  "features": [
+    "elo_diff"
+  ]
+}
