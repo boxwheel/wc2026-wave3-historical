@@ -1,0 +1,14 @@
+{
+  "name": "attempt_009_augmented_wc_train",
+  "description": "In-fold logistic: WC-2026 + augmented historical WC group-stage matches (weight-swept)",
+  "n_historical_wc": 1026,
+  "best_weight": 0.05,
+  "model": "LogisticRegression(C=0.5)",
+  "features": [
+    "wc_elo_diff",
+    "host_advantage"
+  ],
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

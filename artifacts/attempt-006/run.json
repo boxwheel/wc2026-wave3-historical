@@ -1,0 +1,11 @@
+{
+  "name": "attempt_006_wc_elo_baseline",
+  "description": "Campaign baseline verification: in-fold logistic on WC-2026 Elo diff + host advantage",
+  "features": [
+    "wc_elo_diff",
+    "host_advantage"
+  ],
+  "model": "LogisticRegression(C=0.5, multinomial) in-fold",
+  "cv": "RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0)",
+  "seed": 0
+}

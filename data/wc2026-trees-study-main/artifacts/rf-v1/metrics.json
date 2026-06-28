@@ -1,0 +1,21 @@
+{
+  "log_loss_mean": 0.89698,
+  "log_loss_std": 0.1725,
+  "accuracy_mean": 0.5932,
+  "accuracy_std": 0.0846,
+  "n_samples": 64,
+  "n_features": 34,
+  "cv": "5fold x 10repeats",
+  "feature_importance_top10": {
+    "elo_diff": 0.2697276785150483,
+    "mv_diff": 0.09201171166587141,
+    "home_elo_rating": 0.07964497879879603,
+    "rank_diff": 0.07750020391192047,
+    "mv_top11_diff": 0.07438361011810359,
+    "home_gk_mv": 0.04398009688405203,
+    "home_squad_total_mv": 0.03787982016324242,
+    "away_squad_total_goals": 0.03696119090210084,
+    "goals_diff": 0.03390689968134908,
+    "home_squad_total_goals": 0.03264001858995816
+  }
+}

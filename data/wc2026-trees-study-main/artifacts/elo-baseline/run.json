@@ -1,0 +1,16 @@
+{
+  "exp_id": "elo-baseline",
+  "model_type": "elo_logistic",
+  "params": {
+    "C": 1.0
+  },
+  "feature_cols": [
+    "elo_diff",
+    "home_is_host"
+  ],
+  "seed": 0,
+  "sklearn_version": "1.9.0",
+  "numpy_version": "2.5.0",
+  "elapsed_seconds": 1.41,
+  "command": "python3 run_experiment.py elo-baseline elo_logistic '{\"C\": 1.0}'"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "attempt_003_stacked_blend",
+  "description": "In-fold logistic meta-learner blending Attempt-001 + 002 historical probs with WC-2026 Elo/rank features",
+  "n_wc": 64,
+  "features": [
+    "p001_H",
+    "p001_D",
+    "p001_A",
+    "p002_H",
+    "p002_D",
+    "p002_A",
+    "wc_elo_diff",
+    "host_advantage",
+    "wc_rank_diff"
+  ],
+  "model": "LogisticRegression(C=0.1, multinomial) in-fold",
+  "cv": "RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

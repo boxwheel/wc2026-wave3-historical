@@ -1,0 +1,98 @@
+{
+  "006 WC-Elo baseline": {
+    "mean": 0.8374050773624865,
+    "std": 0.11414419765737109,
+    "accuracy": 0.640625,
+    "classes": [
+      "A",
+      "D",
+      "H"
+    ],
+    "delta_vs_baseline": 0.0037050773624864863,
+    "delta_vs_frontier": 0.07660507736248645,
+    "p_value_ttest": 0.8212001017872729,
+    "t_stat": 0.22721734498722954,
+    "verdict": "RED",
+    "elapsed_sec": 7.182793855667114
+  },
+  "001 Transfer Logistic": {
+    "mean": 0.8958536179138042,
+    "std": 0.1019308941586264,
+    "accuracy": 0.640625,
+    "classes": [
+      "A",
+      "D",
+      "H"
+    ],
+    "delta_vs_baseline": 0.06215361791380425,
+    "delta_vs_frontier": 0.1350536179138042,
+    "p_value_ttest": 8.992190236489236e-05,
+    "t_stat": 4.268336199617351,
+    "verdict": "RED",
+    "elapsed_sec": 15.689575672149658
+  },
+  "002 GBM Transfer": {
+    "mean": 0.9265284541754655,
+    "std": 0.10400849747252557,
+    "accuracy": 0.515625,
+    "classes": [
+      "A",
+      "D",
+      "H"
+    ],
+    "delta_vs_baseline": 0.09282845417546548,
+    "delta_vs_frontier": 0.16572845417546544,
+    "p_value_ttest": 9.710120886534292e-08,
+    "t_stat": 6.247558565105765,
+    "verdict": "RED",
+    "elapsed_sec": 16.317460536956787
+  },
+  "003 Stacked Blend": {
+    "mean": 0.8406307132491605,
+    "std": 0.1008194284216317,
+    "accuracy": 0.625,
+    "classes": [
+      "A",
+      "D",
+      "H"
+    ],
+    "delta_vs_baseline": 0.006930713249160503,
+    "delta_vs_frontier": 0.07983071324916047,
+    "p_value_ttest": 0.6325115200918637,
+    "t_stat": 0.48120678230024755,
+    "verdict": "RED",
+    "elapsed_sec": 8.061453104019165
+  },
+  "004 In-fold GBM": {
+    "mean": 1.0027577364988096,
+    "std": 0.24107959474439034,
+    "accuracy": 0.546875,
+    "classes": [
+      "A",
+      "D",
+      "H"
+    ],
+    "delta_vs_baseline": 0.16905773649880962,
+    "delta_vs_frontier": 0.24195773649880958,
+    "p_value_ttest": 1.0570599831315108e-05,
+    "t_stat": 4.908769474025357,
+    "verdict": "RED",
+    "elapsed_sec": 12.902926683425903
+  },
+  "005 GBM Calibrated": {
+    "mean": 0.8869624996593595,
+    "std": 0.09044854195600092,
+    "accuracy": 0.609375,
+    "classes": [
+      "A",
+      "D",
+      "H"
+    ],
+    "delta_vs_baseline": 0.053262499659359475,
+    "delta_vs_frontier": 0.12616249965935944,
+    "p_value_ttest": 0.00014444254050147083,
+    "t_stat": 4.122095166518933,
+    "verdict": "RED",
+    "elapsed_sec": 17.597753047943115
+  }
+}

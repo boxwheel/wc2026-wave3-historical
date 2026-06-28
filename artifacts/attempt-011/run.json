@@ -1,0 +1,18 @@
+{
+  "name": "attempt_011_best_blend",
+  "description": "In-fold logistic: hist WC transfer probs + WC-2026 Elo + form",
+  "features": [
+    "p010_H",
+    "p010_D",
+    "p010_A",
+    "wc_elo_diff",
+    "host_advantage",
+    "win_rate_all_diff",
+    "gd_all_diff",
+    "win_rate_wc3_diff"
+  ],
+  "model": "LogisticRegression(C=0.1)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

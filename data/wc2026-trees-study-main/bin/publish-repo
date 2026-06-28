@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# publish-repo <repo-name> [source-dir]
+# Create a GitHub repo under $GITHUB_OWNER and push <source-dir> (default: cwd).
+set -euo pipefail
+NAME="${1:?usage: publish-repo <repo-name> [source-dir]}"
+DIR="${2:-.}"
+# Always load box-wheel's creds — our .env must win over any GITHUB_TOKEN the
+# box/ssh layer presets in the environment (which is not the publish account's).
+if [ -f "$HOME/research/.env" ]; then
+  set -a; . "$HOME/research/.env"; set +a
+fi
+: "${GITHUB_TOKEN:?GITHUB_TOKEN not set}"
+: "${GITHUB_OWNER:?GITHUB_OWNER not set}"
+cd "$DIR"
+git init -q
+git config user.name  "${GIT_AUTHOR_NAME:-boxwheel-agent}"
+git config user.email "${GIT_AUTHOR_EMAIL:-${GITHUB_OWNER}@users.noreply.github.com}"
+git add -A
+git commit -q -m "${COMMIT_MSG:-box-wheel run: ${NAME}}" \
+  || echo "publish-repo: nothing new to commit"
+# Research output is meant to be public and replicable — default to a PUBLIC
+# repo. Set REPO_PRIVATE=true before calling to override for a private one.
+code=$(curl -sS -o /tmp/publish_repo.json -w "%{http_code}" -X POST \
+  -H "Authorization: Bearer ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" \
+  https://api.github.com/user/repos \
+  -d "{\"name\":\"${NAME}\",\"private\":${REPO_PRIVATE:-false},\"auto_init\":false}")
+case "$code" in
+  201) echo "publish-repo: created ${GITHUB_OWNER}/${NAME} (public=$([ "${REPO_PRIVATE:-false}" = true ] && echo no || echo yes))" ;;
+  422) echo "publish-repo: ${GITHUB_OWNER}/${NAME} exists, reusing"
+       # Make sure a pre-existing repo is public too (idempotent re-runs).
+       if [ "${REPO_PRIVATE:-false}" != true ]; then
+         curl -sS -o /dev/null -X PATCH \
+           -H "Authorization: Bearer ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" \
+           "https://api.github.com/repos/${GITHUB_OWNER}/${NAME}" \
+           -d '{"private":false}' || true
+       fi ;;
+  *)   echo "publish-repo: create failed (HTTP $code): $(cat /tmp/publish_repo.json)"; exit 1 ;;
+esac
+git branch -M main
+git remote remove origin 2>/dev/null || true
+git remote add origin "https://github.com/${GITHUB_OWNER}/${NAME}.git"
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_OWNER}/${NAME}.git" HEAD:main
+echo "publish-repo: pushed https://github.com/${GITHUB_OWNER}/${NAME}"
+

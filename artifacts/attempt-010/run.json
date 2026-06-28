@@ -1,0 +1,14 @@
+{
+  "name": "attempt_010_historical_wc_pure_elo",
+  "description": "Logistic trained on 1,000+ historical WC group stage matches, Elo-at-match-time, predict WC-2026",
+  "n_training": 1026,
+  "model": "LogisticRegression(C=0.3) pure transfer",
+  "features": [
+    "elo_diff",
+    "home_adv"
+  ],
+  "elo_source": "Running Elo (K=30/20/10, home_adv=100)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

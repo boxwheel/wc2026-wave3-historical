@@ -1,0 +1,27 @@
+{
+  "name": "attempt_005_gbm_calibrated",
+  "description": "HistGBM+Isotonic calibration trained on historical corpus (post-2005), predict WC-2026",
+  "n_historical": 20479,
+  "n_wc": 64,
+  "features": [
+    "elo_diff",
+    "home_adv",
+    "tier",
+    "win_rate_10_diff",
+    "gf_10_diff",
+    "ga_10_diff",
+    "gd_10_diff",
+    "win_rate_5_diff",
+    "gd_5_diff",
+    "home_win_rate_10",
+    "away_win_rate_10",
+    "home_gd_10",
+    "away_gd_10"
+  ],
+  "model": "CalibratedClassifierCV(HistGBM, isotonic, cv=5)",
+  "cutoff_date": "2026-06-12",
+  "cv": "RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

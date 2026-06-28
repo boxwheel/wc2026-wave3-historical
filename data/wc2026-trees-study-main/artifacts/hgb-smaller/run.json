@@ -1,0 +1,27 @@
+{
+  "exp_id": "hgb-smaller",
+  "model_type": "hgb+calibrated(sigmoid)",
+  "params": {
+    "max_depth": 2,
+    "min_samples_leaf": 15,
+    "l2_regularization": 10.0,
+    "max_iter": 50,
+    "learning_rate": 0.05
+  },
+  "feature_cols": [
+    "elo_diff",
+    "rank_diff",
+    "mv_diff",
+    "mv_top11_diff",
+    "gk_mv_diff",
+    "home_is_host",
+    "away_is_host",
+    "stage_enc",
+    "home_confederation",
+    "away_confederation"
+  ],
+  "seed": 0,
+  "sklearn_version": "1.9.0",
+  "numpy_version": "2.5.0",
+  "elapsed_seconds": 26.01
+}

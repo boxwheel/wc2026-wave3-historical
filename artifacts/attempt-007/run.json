@@ -1,0 +1,17 @@
+{
+  "name": "attempt_007_enriched_logistic",
+  "description": "In-fold logistic: WC-2026 Elo + historical WC-team form (competitive matches, 2018-2026)",
+  "features": [
+    "wc_elo_diff",
+    "host_advantage",
+    "win_rate_all_diff",
+    "gd_all_diff",
+    "win_rate_wc3_diff",
+    "gd_wc3_diff"
+  ],
+  "model": "LogisticRegression(C=0.3)",
+  "data_source": "Historical competitive matches involving WC-2026 teams (tier>=2, year>=2018)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

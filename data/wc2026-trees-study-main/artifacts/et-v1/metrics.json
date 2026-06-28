@@ -1,0 +1,21 @@
+{
+  "log_loss_mean": 0.8743,
+  "log_loss_std": 0.09962,
+  "accuracy_mean": 0.6391,
+  "accuracy_std": 0.0737,
+  "n_samples": 64,
+  "n_features": 34,
+  "cv": "5fold x 10repeats",
+  "feature_importance_top10": {
+    "elo_diff": 0.16962415322136784,
+    "mv_diff": 0.1078516545861416,
+    "mv_top11_diff": 0.1064815797172887,
+    "rank_diff": 0.09913166637398102,
+    "home_elo_rating": 0.0960125377288882,
+    "home_fifa_ranking_pre_tournament": 0.07767005211680071,
+    "home_squad_total_mv": 0.04458115686209831,
+    "home_gk_mv": 0.035667077168494224,
+    "away_elo_rating": 0.029591059510207223,
+    "home_squad_mean_age": 0.026503155941416376
+  }
+}

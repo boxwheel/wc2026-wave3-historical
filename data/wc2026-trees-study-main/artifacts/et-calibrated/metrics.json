@@ -1,0 +1,11 @@
+{
+  "log_loss_mean": 1.87885,
+  "log_loss_std": 1.67306,
+  "accuracy_mean": 0.6064,
+  "accuracy_std": 0.0899,
+  "n_samples": 64,
+  "n_features": 34,
+  "cv": "5fold x 10repeats",
+  "calibration": "isotonic",
+  "feature_importance_top10": {}
+}

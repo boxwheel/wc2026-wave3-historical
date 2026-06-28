@@ -1,0 +1,21 @@
+{
+  "name": "attempt_001_pure_transfer_logistic",
+  "description": "Logistic regression trained on full historical corpus (post-1990, ~24K matches), predict WC-2026",
+  "n_historical": 32289,
+  "n_wc": 64,
+  "features": [
+    "elo_diff",
+    "home_adv",
+    "win_rate_10_diff",
+    "gd_10_diff",
+    "win_rate_5_diff",
+    "gd_5_diff"
+  ],
+  "model": "LogisticRegression(C=0.5, multinomial)",
+  "scaler": "StandardScaler",
+  "cutoff_date": "2026-06-12",
+  "cv": "RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}
