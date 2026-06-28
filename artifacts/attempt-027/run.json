@@ -1,0 +1,12 @@
+{
+  "attempt": 27,
+  "description": "Empirical WC bin calibration (WC 2014-2022)",
+  "wc_years": [
+    "2014",
+    "2018",
+    "2022"
+  ],
+  "n_bins": 7,
+  "n_cal_matches": 192,
+  "elapsed_s": 6.908326864242554
+}

@@ -1,0 +1,8 @@
+{
+  "attempt": 29,
+  "description": "Direct Elo formula + draw-rate sweep",
+  "approach": "no ML, pure Elo formula",
+  "best_draw_rate": 0.3,
+  "best_scale": 350,
+  "elapsed_s": 2.5596494674682617
+}

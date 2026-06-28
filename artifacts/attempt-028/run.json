@@ -1,0 +1,22 @@
+{
+  "attempt": 28,
+  "description": "Diverse 5-model ensemble",
+  "models": [
+    "A:elo-only",
+    "B:kitchen-sink",
+    "C:recent-form",
+    "D:wc-history",
+    "E:elo+rank"
+  ],
+  "best_blend": [
+    "elo-ks",
+    [
+      0.5,
+      0.3,
+      0.1,
+      0.05,
+      0.05
+    ]
+  ],
+  "elapsed_s": 1.9156568050384521
+}

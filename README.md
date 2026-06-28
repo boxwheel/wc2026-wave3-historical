@@ -35,15 +35,27 @@ Train full-scale supervised models on ~49K historical international matches with
 | 018 | Squad Poisson + logistic blend | 0.8647 ± 0.160 | RED |
 | 019 | WC Elo-only, C+solver sweep (best C=1.0) | 0.8337 ± 0.134 | FLAT |
 | 020 | Kitchen sink (15 features, ridge, C=0.05) | 0.8295 ± 0.117 | FLAT |
+| 021 | Recent form (90-day, C=0.5) | 0.8628 ± 0.107 | RED |
+| 022 | Confederation strength logistic | 0.8726 ± 0.090 | RED |
+| 023 | WC experience + Elo | 0.8438 ± 0.119 | RED |
+| 024 | Squad age features | 0.8567 ± 0.112 | RED |
+| 025 | Blend 70% Elo + 30% kitchen-sink | 0.8254 ± 0.110 | FLAT |
+| 026 | Proportional Odds Model (ordinal logistic) | 0.8961 ± 0.115 | RED |
+| 027 | Empirical WC bin calibration (2014-2022) | 0.9705 ± 0.151 | RED |
+| 028 | Diverse 5-model ensemble (elo-ks blend) | 0.8240 ± 0.121 | FLAT |
+| 029 | Direct Elo formula (draw_rate=0.3, scale=350, host_bonus=100) | **0.8148 ± 0.126** | FLAT |
 
-**Campaign baseline**: 0.8337 | **Wave-2 ensemble frontier**: 0.7608
+**Campaign baseline**: 0.8337 | **Wave-3 best**: 0.8148 | **Wave-2 ensemble frontier**: 0.7608
 
 ## Key Findings
 1. **Historical form ≡ Elo**: Win rate, GD, and form features are proxies for the same signal Elo already encodes. Adding them doesn't beat the baseline.
 2. **Dixon-Coles Poisson is stale**: Historical attack/defense params from 1960-2026 don't reflect current team quality; recency weighting helps but can't fix stale base rates.
 3. **Squad market values need MLE calibration**: Raw market value as a Poisson rate parameter is wildly uncalibrated (loss=1.56).
-4. **Kitchen sink (020) is numerically best (0.8295)** but not statistically significant (p=0.80). The best FLAT result suggests extremely tight prior on ridge.
-5. **Wave-3 gap from frontier**: Best Wave-3 is 0.8295 vs Wave-2 frontier 0.7608 — a 0.069 gap still to close.
+4. **Direct Elo formula beats all ML (029, 0.8148)**: Skipping logistic regression and using the Elo sigmoid directly with draw_rate=0.30, scale=350, and host_bonus=100 is the campaign best. Host teams (Mexico/USA/Canada) get a substantial +100 Elo bonus.
+5. **Ordinal logistic adds no value**: Treating H/D/A as ordinal (026) hurts calibration vs multinomial logistic.
+6. **WC bin calibration needs large samples**: 192 WC matches is insufficient for 7-bin empirical calibration (027, loss=0.9705).
+7. **Ensemble ceiling ≈ 0.824**: The 5-model ensemble (028) and 2-model blend (025) converge around 0.824; diminishing returns on more models.
+8. **Wave-3 gap from frontier**: Best Wave-3 is 0.8148 vs Wave-2 frontier 0.7608 — a 0.054 gap still to close.
 
 ## Eval Protocol
 RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0) on 64 completed WC-2026 group-stage matches.
@@ -55,4 +67,6 @@ python code/run_experiments.py    # Batch 1: attempts 001-006
 python code/run_experiments2.py   # Batch 2: attempts 007-011
 python run_experiments3.py        # Batch 3: attempts 012-015 (Dixon-Coles, blend, H2H, calibration)
 python run_experiments4.py        # Batch 4: attempts 016-020 (squad Poisson, combined, sweep)
+python run_experiments5.py        # Batch 5: attempts 021-025 (form, confederation, WC exp, age, ensemble)
+python run_experiments6.py        # Batch 6: attempts 026-029 (ordinal, WC bins, 5-model ensemble, direct Elo)
 ```

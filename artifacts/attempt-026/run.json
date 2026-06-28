@@ -1,0 +1,11 @@
+{
+  "attempt": 26,
+  "description": "Proportional Odds Model (ordinal logistic)",
+  "features": [
+    "elo_diff",
+    "host_advantage",
+    "rank_diff"
+  ],
+  "best_reg": 0.05,
+  "elapsed_s": 1.9452719688415527
+}
