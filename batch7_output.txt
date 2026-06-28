@@ -1,0 +1,50 @@
+======================================================================
+Wave-3 Batch 7: Extended Elo formula, blends, adaptive draw rate
+======================================================================
+
+=== Attempt 030: Fine grid sweep around best Elo formula params ===
+  Top 5:
+    dr=0.3, sc=400, bonus=250: 0.8056
+    dr=0.3, sc=375, bonus=250: 0.8058
+    dr=0.32, sc=400, bonus=250: 0.8061
+    dr=0.32, sc=375, bonus=250: 0.8062
+    dr=0.3, sc=350, bonus=250: 0.8073
+  Best dr=0.3, sc=400, bonus=250: 0.8056 ± 0.1161  p=0.0482  GREEN
+
+=== Attempt 031: Blend Elo formula (029 params) + kitchen-sink logistic ===
+  alpha(elo)=0.0: 0.8833
+  alpha(elo)=0.1: 0.8702
+  alpha(elo)=0.2: 0.8586
+  alpha(elo)=0.3: 0.8483
+  alpha(elo)=0.4: 0.8393
+  alpha(elo)=0.5: 0.8316
+  alpha(elo)=0.6: 0.8252
+  alpha(elo)=0.7: 0.8202
+  alpha(elo)=0.8: 0.8167
+  alpha(elo)=0.9: 0.8148
+  alpha(elo)=1.0: 0.8148
+  Best alpha(elo)=0.9: 0.8148 ± 0.1165  p=0.1305  FLAT
+
+=== Attempt 032: Adaptive draw rate by Elo bin (WC 2006-2022) ===
+  WC calibration n=4626
+    [-500,-150) n=968: dr=0.227
+    [-150,-75) n=633: dr=0.294
+    [-75,-25) n=376: dr=0.298
+    [-25,25) n=407: dr=0.266
+    [25,75) n=401: dr=0.262
+    [75,150) n=679: dr=0.234
+    [150,500) n=1035: dr=0.124
+  Best sc=325, bonus=150: 0.8669 ± 0.1474  p=0.9394  RED
+
+=== Attempt 033: Temperature-scaled logistic + Elo blend ===
+  Best params={'T': 0.7, 'alpha_elo': 0.9}: 0.8118 ± 0.1180  p=0.1001  FLAT
+  Pure elo (alpha=1): 0.8147770693094057
+  Pure logistic T=1 (alpha=0): 0.8833032013013752
+
+======================================================================
+SUMMARY TABLE Batch 7
+======================================================================
+  030 Fine grid Elo formula         : 0.8056 ± 0.1161  GREEN
+  031 Elo formula + KS blend        : 0.8148 ± 0.1165  FLAT
+  032 Adaptive draw rate (WC-bins)  : 0.8669 ± 0.1474  RED
+  033 Temp-scaled logistic+Elo      : 0.8118 ± 0.1180  FLAT

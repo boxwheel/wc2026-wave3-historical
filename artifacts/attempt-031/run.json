@@ -1,0 +1,7 @@
+{
+  "attempt": 31,
+  "elo_dr": 0.3,
+  "elo_sc": 350,
+  "elo_bonus": 100,
+  "C_logistic": 0.05
+}

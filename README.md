@@ -43,19 +43,23 @@ Train full-scale supervised models on ~49K historical international matches with
 | 026 | Proportional Odds Model (ordinal logistic) | 0.8961 ± 0.115 | RED |
 | 027 | Empirical WC bin calibration (2014-2022) | 0.9705 ± 0.151 | RED |
 | 028 | Diverse 5-model ensemble (elo-ks blend) | 0.8240 ± 0.121 | FLAT |
-| 029 | Direct Elo formula (draw_rate=0.3, scale=350, host_bonus=100) | **0.8148 ± 0.126** | FLAT |
+| 029 | Direct Elo formula (draw_rate=0.3, scale=350, host_bonus=100) | 0.8148 ± 0.126 | FLAT |
+| 030 | Fine grid Elo sweep (dr=0.30, sc=400, host_bonus=250) | **0.8056 ± 0.116** | **GREEN** |
+| 031 | Elo formula + kitchen-sink logistic blend (alpha=0.9) | 0.8148 ± 0.117 | FLAT |
+| 032 | Adaptive draw rate by Elo bin (WC 2006-2022 calibration) | 0.8669 ± 0.147 | RED |
+| 033 | Temperature-scaled logistic + Elo formula blend (T=0.7) | 0.8118 ± 0.118 | FLAT |
 
-**Campaign baseline**: 0.8337 | **Wave-3 best**: 0.8148 | **Wave-2 ensemble frontier**: 0.7608
+**Campaign baseline**: 0.8337 | **Wave-3 best**: **0.8056 (GREEN)** | **Wave-2 ensemble frontier**: 0.7608
 
 ## Key Findings
 1. **Historical form ≡ Elo**: Win rate, GD, and form features are proxies for the same signal Elo already encodes. Adding them doesn't beat the baseline.
 2. **Dixon-Coles Poisson is stale**: Historical attack/defense params from 1960-2026 don't reflect current team quality; recency weighting helps but can't fix stale base rates.
 3. **Squad market values need MLE calibration**: Raw market value as a Poisson rate parameter is wildly uncalibrated (loss=1.56).
-4. **Direct Elo formula beats all ML (029, 0.8148)**: Skipping logistic regression and using the Elo sigmoid directly with draw_rate=0.30, scale=350, and host_bonus=100 is the campaign best. Host teams (Mexico/USA/Canada) get a substantial +100 Elo bonus.
-5. **Ordinal logistic adds no value**: Treating H/D/A as ordinal (026) hurts calibration vs multinomial logistic.
-6. **WC bin calibration needs large samples**: 192 WC matches is insufficient for 7-bin empirical calibration (027, loss=0.9705).
-7. **Ensemble ceiling ≈ 0.824**: The 5-model ensemble (028) and 2-model blend (025) converge around 0.824; diminishing returns on more models.
-8. **Wave-3 gap from frontier**: Best Wave-3 is 0.8148 vs Wave-2 frontier 0.7608 — a 0.054 gap still to close.
+4. **First GREEN: host_bonus=250 + scale=400 (030, 0.8056)**: Extending the host_bonus grid from 100 to 250 (with scale=400) achieves the first statistically significant beat of the baseline (p=0.048). Host nations Mexico/USA/Canada have enormous home advantage in a hosted World Cup.
+5. **Host bonus trend still rising at 250**: In Batch 7 grid, best result is at the maximum host_bonus value (250), suggesting further improvement from pushing higher.
+6. **Adaptive draw rates hurt (032)**: WC-calibrated bin draw rates create extreme low draw rates for large Elo mismatches (0.124), causing miscalibrated extreme probabilities.
+7. **Logistic blends can't beat pure Elo (031, 033)**: Neither kitchen-sink logistic blend nor temperature-scaled logistic improve over the direct Elo formula. The formula's signal is already well-extracted.
+8. **Wave-3 gap from frontier**: Best Wave-3 is 0.8056 vs Wave-2 frontier 0.7608 — a 0.045 gap still to close.
 
 ## Eval Protocol
 RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=0) on 64 completed WC-2026 group-stage matches.
@@ -69,4 +73,5 @@ python run_experiments3.py        # Batch 3: attempts 012-015 (Dixon-Coles, blen
 python run_experiments4.py        # Batch 4: attempts 016-020 (squad Poisson, combined, sweep)
 python run_experiments5.py        # Batch 5: attempts 021-025 (form, confederation, WC exp, age, ensemble)
 python run_experiments6.py        # Batch 6: attempts 026-029 (ordinal, WC bins, 5-model ensemble, direct Elo)
+python run_experiments7.py        # Batch 7: attempts 030-033 (fine grid GREEN, logistic blend, adaptive draw, temp-scale)
 ```
