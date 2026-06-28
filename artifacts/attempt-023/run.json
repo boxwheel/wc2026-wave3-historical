@@ -1,0 +1,11 @@
+{
+  "attempt": 23,
+  "description": "WC history count + WC Elo",
+  "features": [
+    "elo_diff",
+    "host_advantage",
+    "wc_apps_diff"
+  ],
+  "best_C": 0.3,
+  "elapsed_s": 1.678919792175293
+}

@@ -1,0 +1,15 @@
+{
+  "name": "attempt_015_poisson_recalibrated",
+  "description": "In-fold logistic re-calibration of Poisson probs using WC-2026 matches + WC Elo",
+  "features": [
+    "pois_H",
+    "pois_D",
+    "pois_A",
+    "wc_elo_diff",
+    "host_advantage"
+  ],
+  "model": "LogisticRegression(C=0.3)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

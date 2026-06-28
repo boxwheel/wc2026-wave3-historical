@@ -1,0 +1,15 @@
+{
+  "name": "attempt_014_h2h_features",
+  "description": "In-fold logistic: WC-2026 Elo + head-to-head historical record",
+  "features": [
+    "wc_elo_diff",
+    "host_advantage",
+    "h2h_home_wr",
+    "h2h_gd",
+    "h2h_draw_r"
+  ],
+  "model": "LogisticRegression(C=0.3)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

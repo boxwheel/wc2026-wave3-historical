@@ -1,0 +1,12 @@
+{
+  "attempt": 21,
+  "description": "Recent form (18m) + WC Elo logistic",
+  "features": [
+    "elo_diff",
+    "host_advantage",
+    "form_diff"
+  ],
+  "form_window": "2024-11-01 to 2026-05-31",
+  "best_C": 0.5,
+  "elapsed_s": 1.5426056385040283
+}

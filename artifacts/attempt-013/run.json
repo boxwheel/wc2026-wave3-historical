@@ -1,0 +1,9 @@
+{
+  "name": "attempt_013_geomean_blend",
+  "description": "Geometric mean blend: Poisson (historical WC+continental) + WC-2026 Elo logistic (in-fold)",
+  "best_alpha": 0.1,
+  "model": "GeometricMean(WC_Elo^(1-alpha), Poisson^alpha)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

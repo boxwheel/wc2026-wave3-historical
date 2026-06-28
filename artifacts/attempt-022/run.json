@@ -1,0 +1,12 @@
+{
+  "attempt": 22,
+  "description": "Confederation strength bias + WC Elo",
+  "features": [
+    "elo_diff",
+    "host_advantage",
+    "conf_tier_diff",
+    "conf_elo_diff"
+  ],
+  "best_C": 0.5,
+  "elapsed_s": 1.6073317527770996
+}

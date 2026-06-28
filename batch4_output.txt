@@ -1,0 +1,54 @@
+======================================================================
+Wave-3 Batch 4: Squad-derived Poisson + Combined Features
+======================================================================
+
+=== Attempt 016: Squad-derived Poisson goals model ===
+  Log-loss: 1.5627 ± 0.5340
+  Accuracy: 0.609  RED
+
+=== Attempt 017: Combined: WC Elo + rank + squad features, in-fold logistic ===
+  C=0.05: 0.8451 ± 0.1040  RED
+  C=0.1: 0.8520 ± 0.1332  RED
+  C=0.2: 0.8808 ± 0.1682  RED
+  C=0.3: 0.9072 ± 0.1919  RED
+  Best C=0.05: 0.8451 ± 0.1040  acc=0.578  RED
+
+=== Attempt 018: Blend squad Poisson + full features logistic ===
+  0.8647 ± 0.1601  acc=0.562  RED
+
+=== Attempt 019: WC Elo-only logistic, fine-tuned regularization sweep ===
+  C=0.05 solver=lbfgs: 0.9192 NEW BEST
+  C=0.05 solver=saga: 0.9192 NEW BEST
+  C=0.1 solver=lbfgs: 0.8836 NEW BEST
+  C=0.1 solver=saga: 0.8835 NEW BEST
+  C=0.2 solver=lbfgs: 0.8568 NEW BEST
+  C=0.2 solver=saga: 0.8568 NEW BEST
+  C=0.3 solver=lbfgs: 0.8460 NEW BEST
+  C=0.3 solver=saga: 0.8460 NEW BEST
+  C=0.5 solver=lbfgs: 0.8374 NEW BEST
+  C=0.5 solver=saga: 0.8374 NEW BEST
+  C=0.7 solver=lbfgs: 0.8345 NEW BEST
+  C=0.7 solver=saga: 0.8345
+  C=1.0 solver=lbfgs: 0.8337 NEW BEST
+  C=1.0 solver=saga: 0.8337 NEW BEST
+  C=2.0 solver=lbfgs: 0.8370
+  C=2.0 solver=saga: 0.8370
+  Best config (1.0, 'saga'): 0.8337 ± 0.1339  FLAT
+
+=== Attempt 020: Kitchen sink (all WC features + historical form), ridge logistic ===
+  C=0.03: 0.8309 ± 0.0975  FLAT
+  C=0.05: 0.8295 ± 0.1168  FLAT
+  C=0.07: 0.8358 ± 0.1309  RED
+  C=0.1: 0.8491 ± 0.1475  RED
+  C=0.15: 0.8725 ± 0.1685  RED
+  C=0.2: 0.8943 ± 0.1853  RED
+  Best C=0.05: 0.8295 ± 0.1168  acc=0.578  FLAT
+
+======================================================================
+SUMMARY TABLE Batch 4
+======================================================================
+  016 Squad Poisson     : 1.5627 ± 0.5340  acc=0.609  RED
+  017 Combined features : 0.8451 ± 0.1040  acc=0.578  RED
+  018 Squad Pois blend  : 0.8647 ± 0.1601  acc=0.562  RED
+  019 Elo-opt sweep     : 0.8337 ± 0.1339  acc=0.641  FLAT
+  020 Kitchen sink      : 0.8295 ± 0.1168  acc=0.578  FLAT

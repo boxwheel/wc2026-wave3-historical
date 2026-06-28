@@ -1,0 +1,12 @@
+{
+  "attempt": 24,
+  "description": "Squad age profile + WC Elo",
+  "features": [
+    "elo_diff",
+    "host_advantage",
+    "age_diff",
+    "peak_ratio_diff"
+  ],
+  "best_C": 0.5,
+  "elapsed_s": 1.7431023120880127
+}

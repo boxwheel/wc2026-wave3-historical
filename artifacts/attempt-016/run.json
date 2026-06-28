@@ -1,0 +1,13 @@
+{
+  "name": "attempt_016_squad_poisson",
+  "description": "Poisson goals model with squad market-value attack/defense proxies",
+  "model": "Poisson(mu=1.3, home_adv=0.1)",
+  "features": [
+    "att_mv/mean",
+    "def_mv/mean",
+    "gk_mv/mean"
+  ],
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

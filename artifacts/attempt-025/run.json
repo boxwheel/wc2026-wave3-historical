@@ -1,0 +1,7 @@
+{
+  "attempt": 25,
+  "description": "Ensemble OOF probs: 019 (Elo C=1.0) + 020 (kitchen sink C=0.05)",
+  "weight_019": 0.7,
+  "weight_020": 0.30000000000000004,
+  "elapsed_s": 1.3393299579620361
+}

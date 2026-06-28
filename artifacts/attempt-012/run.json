@@ -1,0 +1,16 @@
+{
+  "name": "attempt_012_poisson_attack_defense",
+  "description": "Poisson goals model with team attack/defense params from historical WC+continental matches",
+  "n_historical": 9934,
+  "model": "Log-linear Poisson (L-BFGS-B, L2 reg), max_goals=10, recency_halflife=3yr",
+  "features": [
+    "attack_diff",
+    "defense_diff",
+    "home_adv"
+  ],
+  "cutoff_date": "2026-06-12",
+  "cv": "RepeatedStratifiedKFold(5x10, seed=0)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

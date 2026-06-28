@@ -1,0 +1,23 @@
+{
+  "name": "attempt_020_kitchen_sink",
+  "description": "In-fold logistic: WC Elo + rank + squad features + historical form (15 features, regularized)",
+  "features": [
+    "wc_elo_diff",
+    "hist_elo_diff",
+    "elo_diff_delta",
+    "wc_rank_diff",
+    "host_advantage",
+    "log_mv_diff",
+    "log_top11_diff",
+    "caps_diff",
+    "att_goals_diff",
+    "gk_mv_diff",
+    "win_rate_10_diff",
+    "gd_10_diff",
+    "win_rate_5_diff"
+  ],
+  "model": "LogisticRegression(C=0.05)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

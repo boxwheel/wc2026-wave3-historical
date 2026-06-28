@@ -1,0 +1,107 @@
+======================================================================
+Wave-3 Batch 3: Attack/Defense Decomposition via Poisson Goals
+======================================================================
+
+=== Attempt 012: Poisson attack/defense from historical WC + competitions ===
+  Historical WC+continental matches: 9934
+  Fit complete. n_teams=224, home_adv=0.296, mu=0.070
+  Mexico     v South Afri: H=0.530 D=0.285 A=0.184
+  South Kore v Czechia   : H=0.537 D=0.232 A=0.232
+  Canada     v Bosnia and: H=0.679 D=0.188 A=0.133
+  USA        v Paraguay  : H=0.480 D=0.269 A=0.251
+  Qatar      v Switzerlan: H=0.537 D=0.226 A=0.237
+  Brazil     v Morocco   : H=0.319 D=0.358 A=0.322
+  Haiti      v Scotland  : H=0.313 D=0.264 A=0.422
+  Australia  v Türkiye   : H=0.403 D=0.312 A=0.285
+  Germany    v Curaçao   : H=0.756 D=0.173 A=0.071
+  Netherland v Japan     : H=0.425 D=0.249 A=0.327
+  Côte d'Ivo v Ecuador   : H=0.333 D=0.262 A=0.405
+  Sweden     v Tunisia   : H=0.341 D=0.277 A=0.382
+  Spain      v Cabo Verde: H=0.706 D=0.204 A=0.090
+  Belgium    v Egypt     : H=0.462 D=0.312 A=0.225
+  Saudi Arab v Uruguay   : H=0.158 D=0.311 A=0.531
+  IR Iran    v New Zealan: H=0.703 D=0.185 A=0.112
+  France     v Senegal   : H=0.436 D=0.292 A=0.273
+  Iraq       v Norway    : H=0.546 D=0.217 A=0.237
+  Argentina  v Algeria   : H=0.541 D=0.259 A=0.200
+  Austria    v Jordan    : H=0.259 D=0.291 A=0.450
+  Portugal   v Congo DR  : H=0.584 D=0.258 A=0.158
+  England    v Croatia   : H=0.527 D=0.259 A=0.214
+  Ghana      v Panama    : H=0.261 D=0.235 A=0.504
+  Uzbekistan v Colombia  : H=0.253 D=0.325 A=0.422
+  Mexico     v South Kore: H=0.504 D=0.260 A=0.236
+  Czechia    v South Afri: H=0.287 D=0.285 A=0.428
+  Canada     v Qatar     : H=0.341 D=0.257 A=0.401
+  Switzerlan v Bosnia and: H=0.574 D=0.216 A=0.210
+  Brazil     v Haiti     : H=0.709 D=0.198 A=0.093
+  Scotland   v Morocco   : H=0.118 D=0.230 A=0.652
+  USA        v Australia : H=0.295 D=0.299 A=0.405
+  Türkiye    v Paraguay  : H=0.462 D=0.283 A=0.255
+  Germany    v Côte d'Ivo: H=0.505 D=0.236 A=0.259
+  Ecuador    v Curaçao   : H=0.665 D=0.231 A=0.104
+  Netherland v Sweden    : H=0.545 D=0.241 A=0.214
+  Tunisia    v Japan     : H=0.271 D=0.250 A=0.479
+  Belgium    v IR Iran   : H=0.484 D=0.265 A=0.251
+  New Zealan v Egypt     : H=0.133 D=0.250 A=0.617
+  Spain      v Saudi Arab: H=0.627 D=0.240 A=0.133
+  Uruguay    v Cabo Verde: H=0.606 D=0.280 A=0.114
+  France     v Iraq      : H=0.643 D=0.187 A=0.170
+  Norway     v Senegal   : H=0.151 D=0.249 A=0.600
+  Argentina  v Austria   : H=0.616 D=0.233 A=0.151
+  Jordan     v Algeria   : H=0.379 D=0.299 A=0.322
+  Portugal   v Uzbekistan: H=0.417 D=0.293 A=0.290
+  Colombia   v Congo DR  : H=0.573 D=0.287 A=0.141
+  England    v Ghana     : H=0.777 D=0.150 A=0.073
+  Panama     v Croatia   : H=0.240 D=0.236 A=0.524
+  Czechia    v Mexico    : H=0.142 D=0.266 A=0.592
+  South Afri v South Kore: H=0.303 D=0.241 A=0.456
+  Switzerlan v Canada    : H=0.264 D=0.228 A=0.508
+  Bosnia and v Qatar     : H=0.117 D=0.181 A=0.701
+  Scotland   v Brazil    : H=0.120 D=0.239 A=0.641
+  Morocco    v Haiti     : H=0.720 D=0.189 A=0.091
+  Türkiye    v USA       : H=0.325 D=0.337 A=0.337
+  Paraguay   v Australia : H=0.203 D=0.235 A=0.563
+  Ecuador    v Germany   : H=0.295 D=0.234 A=0.471
+  Curaçao    v Côte d'Ivo: H=0.121 D=0.261 A=0.619
+  Tunisia    v Netherland: H=0.230 D=0.270 A=0.500
+  Japan      v Sweden    : H=0.521 D=0.226 A=0.253
+  New Zealan v Belgium   : H=0.071 D=0.175 A=0.755
+  Egypt      v IR Iran   : H=0.335 D=0.285 A=0.380
+  Uruguay    v Spain     : H=0.305 D=0.313 A=0.381
+  Cabo Verde v Saudi Arab: H=0.252 D=0.353 A=0.395
+  Log-loss: 0.9954 ± 0.0999
+  Accuracy: 0.500
+  Δ vs baseline: +0.1617, p=0.000, verdict=RED
+
+=== Attempt 013: Geometric mean blend (Poisson + WC Elo logistic) ===
+  alpha(poisson)=0.1: 0.8403
+  alpha(poisson)=0.2: 0.8453
+  alpha(poisson)=0.3: 0.8526
+  alpha(poisson)=0.4: 0.8626
+  alpha(poisson)=0.5: 0.8754
+  alpha(poisson)=0.6: 0.8914
+  alpha(poisson)=0.7: 0.9110
+  alpha(poisson)=0.8: 0.9346
+  Best alpha: 0.1
+  Final: 0.8403 ± 0.1081  acc=0.641  RED
+
+=== Attempt 014: Head-to-head historical record + WC Elo ===
+  C=0.1: 0.8771 ± 0.0781  RED
+  C=0.3: 0.8574 ± 0.1120  RED
+  C=0.5: 0.8587 ± 0.1319  RED
+  Final: 0.8574 ± 0.1120  acc=0.641  RED
+
+=== Attempt 015: In-fold isotonic re-calibrated Poisson ===
+  C=0.05: 0.9104 ± 0.0673  RED
+  C=0.1: 0.8893 ± 0.0877  RED
+  C=0.2: 0.8756 ± 0.1107  RED
+  C=0.3: 0.8716 ± 0.1252  RED
+  Final (best C=0.3): 0.8716 ± 0.1252  acc=0.609  RED
+
+======================================================================
+SUMMARY TABLE Batch 3
+======================================================================
+  012 Poisson A/D          : 0.9954 ± 0.0999  acc=0.500  RED
+  013 Geo-mean blend       : 0.8403 ± 0.1081  acc=0.641  RED
+  014 H2H features         : 0.8574 ± 0.1120  acc=0.641  RED
+  015 Poisson+Recal        : 0.8716 ± 0.1252  acc=0.609  RED

@@ -1,0 +1,65 @@
+======================================================================
+Wave-3 Batch 5: Recent Form, Confederation, WC History, Age, Ensemble
+======================================================================
+
+=== Attempt 021: Recent form (last 18 months) + WC Elo logistic ===
+  Teams with form data: 41 / 48
+  Form range: 0.262 – 0.902
+  Samples: 64, form_diff mean=0.0359 std=0.2244
+  C=0.05: 0.8907 ± 0.0592  RED
+  C=0.1: 0.8629 ± 0.0793  RED
+  C=0.3: 0.8436 ± 0.1153  RED
+  C=0.5: 0.8436 ± 0.1332  RED
+  C=1.0: 0.8511 ± 0.1584  RED
+  Best C=0.5: 0.8436 ± 0.1332  acc=0.578  RED
+
+=== Attempt 022: Confederation strength bias + WC Elo ===
+  Confederation tiers: {'AFC': '1716', 'CAF': '1733', 'CONCACAF': '1698', 'CONMEBOL': '1954', 'OFC': '1510', 'UEFA': '1893'}
+  Samples: 64
+  C=0.05: 0.8974 ± 0.0689  RED
+  C=0.1: 0.8730 ± 0.0898  RED
+  C=0.3: 0.8522 ± 0.1240  RED
+  C=0.5: 0.8489 ± 0.1402  RED
+  C=1.0: 0.8509 ± 0.1631  RED
+  Best C=0.5: 0.8489 ± 0.1402  acc=0.609  RED
+
+=== Attempt 023: WC tournament history count + WC Elo ===
+  WC apps range: 0 – 22
+  Most experienced: Brazil (22)
+  Samples: 64, wc_apps_diff range: -17 – 21
+  C=0.05: 0.8926 ± 0.0627  RED
+  C=0.1: 0.8664 ± 0.0822  RED
+  C=0.3: 0.8516 ± 0.1150  RED
+  C=0.5: 0.8542 ± 0.1305  RED
+  C=1.0: 0.8676 ± 0.1527  RED
+  Best C=0.3: 0.8516 ± 0.1150  acc=0.656  RED
+
+=== Attempt 024: Squad age profile + WC Elo ===
+  Samples: 64, avg_age examples: {'count': 64.0, 'mean': -0.05912211077765439, 'std': 1.5084718898722762, 'min': -3.451376823040068, '25%': -1.0741062496709297, '50%': -0.07407992418259646, '75%': 1.0385141894382137, 'max': 2.76407097351656}
+  C=0.05: 0.9326 ± 0.0579  RED
+  C=0.1: 0.9059 ± 0.0803  RED
+  C=0.3: 0.8857 ± 0.1195  RED
+  C=0.5: 0.8853 ± 0.1382  RED
+  C=1.0: 0.8947 ± 0.1651  RED
+  Best C=0.5: 0.8853 ± 0.1382  acc=0.562  RED
+
+=== Attempt 025: Ensemble of 019 + 020 OOF probs ===
+  w(019)=0.1: 0.8456 ± 0.1142  RED
+  w(019)=0.2: 0.8398 ± 0.1152  RED
+  w(019)=0.3: 0.8350 ± 0.1168  RED
+  w(019)=0.4: 0.8311 ± 0.1190  FLAT
+  w(019)=0.5: 0.8281 ± 0.1218  FLAT
+  w(019)=0.6: 0.8262 ± 0.1252  FLAT
+  w(019)=0.7: 0.8254 ± 0.1296  FLAT
+  w(019)=0.8: 0.8261 ± 0.1350  FLAT
+  w(019)=0.9: 0.8288 ± 0.1422  FLAT
+  Best w(019)=0.7: 0.8254 ± 0.1296  acc=0.641  FLAT
+
+======================================================================
+SUMMARY TABLE Batch 5
+======================================================================
+  021 Recent form (18m) + Elo       : 0.8436 ± 0.1332  acc=0.578  RED
+  022 Confederation bias + Elo      : 0.8489 ± 0.1402  acc=0.609  RED
+  023 WC history count + Elo        : 0.8516 ± 0.1150  acc=0.656  RED
+  024 Squad age profile + Elo       : 0.8853 ± 0.1382  acc=0.562  RED
+  025 Ensemble 019+020              : 0.8254 ± 0.1296  acc=0.641  FLAT

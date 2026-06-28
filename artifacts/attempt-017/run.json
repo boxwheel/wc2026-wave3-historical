@@ -1,0 +1,20 @@
+{
+  "name": "attempt_017_combined_features",
+  "description": "In-fold logistic: WC-2026 Elo + rank + squad features (market value, caps, age, attacker goals)",
+  "features": [
+    "elo_diff",
+    "rank_diff",
+    "host_adv",
+    "log_total_mv_diff",
+    "log_top11_mv_diff",
+    "caps_diff",
+    "age_diff",
+    "att_goals_diff",
+    "gk_mv_diff",
+    "def_mv_diff"
+  ],
+  "model": "LogisticRegression(C=0.05)",
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}

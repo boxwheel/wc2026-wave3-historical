@@ -1,0 +1,15 @@
+{
+  "name": "attempt_019_elo_only_opt",
+  "description": "WC-2026 Elo-only logistic with systematic regularization + solver sweep",
+  "features": [
+    "wc_elo_diff",
+    "host_advantage"
+  ],
+  "best_config": [
+    1.0,
+    "saga"
+  ],
+  "seed": 0,
+  "baseline": 0.8337,
+  "frontier": 0.7608
+}
